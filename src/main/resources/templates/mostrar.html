@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- head -->
+<head th:include="template.html::head"></head>
+<!-- head -->
+
+<body>
+    <!-- header -->
+    <div th:include="template.html::header"></div>
+    <!-- header -->
+
+    <!-- nav -->
+    <div th:include="template.html::nav"></div>
+    <!-- nav -->
+
+    <!-- main -->
+    <main class="main">
+        <div class="main__container">
+            <section class="section">
+                <h2>Lista de recetas</h2>
+                <div class="container__grid">
+					<article th:each="elemento : ${recetas}">
+						<div class="image-container">
+                            <img th:src="@{'images/recipe.webp'}" alt="">
+							<div class="overlay">
+								<div class="text">
+									<h3 th:text = "${elemento.nombre}"></h3>
+									<p th:text = "${'Dificultad: ' + elemento.dificultad.dificultad}"></p>
+									<p th:text = "${'Calorías/Ración: ' + elemento.calorias}"></p>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+            </section>
+        </div>
+    </main>
+    <!-- main -->
+
+    <!-- footer -->
+    <div th:include="template.html::footer"></div>
+    <!-- footer -->
+</body>
+</html>
