@@ -1,0 +1,73 @@
+.container__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 2em;
+	grid-auto-flow: row;
+}
+
+article {
+	background-color: var(--mainColor);
+	padding: 2%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.row__column {
+    padding: 0 1em;
+}
+
+/* Una columna por fila para pantallas de hasta 768px */
+@media screen and (max-width: 768px) {
+	.container__grid {
+		grid-template-columns: 1fr;
+	}
+	
+	.row__column {
+    	flex: 0 0 100%;
+    	max-width: 100%;
+    	margin-bottom: 1em;
+	}
+}
+
+/* Dos columnas por fila para pantallas de 769px a 1080px */
+@media screen and (min-width: 769px) and (max-width: 1080px) {
+	.container__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	.row__column {
+    	flex: 0 0 50%;
+    	max-width: 50%;
+    	margin-bottom: 1em;
+	}
+}
+
+/* Tres columnas por fila para pantallas de 1081px a 1280px */
+@media screen and (min-width: 1081px) and (max-width: 1280px) {
+	.container__grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	
+	.row__column {
+    	flex: 0 0 25%;
+    	max-width: 25%;
+	}
+}
+
+/* Cuatro columnas por fila para pantallas mayores de 1281px */
+@media screen and (min-width: 1281px) {
+	.container__grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	
+	.row__column {
+    	flex: 0 0 25%;
+    	max-width: 25%;
+	}
+}
